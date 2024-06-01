@@ -20,7 +20,7 @@ const News = () => {
     url.searchParams.append("apiKey", API_KEY);
 
     try {
-      const response = await fetch(url.toString());
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
