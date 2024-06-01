@@ -58,10 +58,10 @@ const News = () => {
           <input
             type="text"
             name="country"
-            value={countrycode}
+            value={API}
             onChange={(e) => setAPI(e.target.value)}
             id="country"
-            placeholder="countryCode..."
+            placeholder="API_key..."
             className="h-12 w-64 shadow-xl rounded px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </label>
