@@ -112,7 +112,7 @@ const News = () => {
               />
               <div className="text-gray-600 text-sm mb-4">
                 <p>
-                  By <strong>{article.author}</strong> | Published on{" "}
+                  By <strong>{article?.author}</strong> | Published on{" "}
                   <strong>
                     {new Date(article.publishedAt).toLocaleDateString()}
                   </strong>
