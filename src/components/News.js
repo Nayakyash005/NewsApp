@@ -7,6 +7,7 @@ const News = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [countrycode, setcountryCode] = useState("");
   const [check, setcheck] = useState(false);
+  const [API, setAPI] = useState("");
 
   const API_URL = "https://newsapi.org/v2/top-headlines";
   const API_KEY = "9c1d8b64220947d086caf33245bc037c";
@@ -17,7 +18,7 @@ const News = () => {
 
     const url = new URL(`${API_URL}`);
     url.searchParams.append("country", countrycode);
-    url.searchParams.append("apiKey", API_KEY);
+    url.searchParams.append("apiKey", API);
 
     try {
       const response = await fetch(url);
@@ -47,6 +48,18 @@ const News = () => {
             name="country"
             value={countrycode}
             onChange={(e) => setcountryCode(e.target.value)}
+            id="country"
+            placeholder="countryCode..."
+            className="h-12 w-64 shadow-xl rounded px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </label>
+        <label className="flex flex-col items-start mr-4">
+          <span className="text-lg  mb-2 font-bold ">Enter country</span>
+          <input
+            type="text"
+            name="country"
+            value={countrycode}
+            onChange={(e) => setAPI(e.target.value)}
             id="country"
             placeholder="countryCode..."
             className="h-12 w-64 shadow-xl rounded px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
