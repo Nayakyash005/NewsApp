@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 // import img1 from "./assets/images.jpeg";
+import { useNavigate } from "react-router-dom";
 import { IoChatboxEllipsesSharp } from "react-icons/io5";
 const News = () => {
   const [articles, setArticles] = useState([]);
@@ -8,6 +9,7 @@ const News = () => {
   const [countrycode, setcountryCode] = useState("");
   const [check, setcheck] = useState(false);
   const [API, setAPI] = useState("");
+  const navigate = useNavigate();
 
   const API_URL = "https://newsapi.org/v2/top-headlines";
   const API_KEY = "9c1d8b64220947d086caf33245bc037c";
@@ -33,6 +35,11 @@ const News = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleAPI = () => {
+    console.log("swith to the API key");
+    window.location.replace("https://newsapi.org/docs/authentication");
   };
 
   return (
@@ -65,6 +72,12 @@ const News = () => {
             className="h-12 w-64 shadow-xl rounded px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </label>
+        <button
+          onClick={handleAPI}
+          className="px-6 py-2 h-fit md: mt-10 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300 shadow-xl"
+        >
+          Get API_KEY
+        </button>
         <button
           onClick={handlenews}
           className="px-6 py-2 h-fit md: mt-10 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300 shadow-xl"
