@@ -23,7 +23,10 @@ const News = () => {
     url.searchParams.append("apiKey", API);
 
     try {
-      const response = await fetch(url);
+      // const response = await fetch(url);
+      const response = await fetch(
+        "https://newsapi.org/v2/everything?q=keyword&apiKey=9c1d8b64220947d086caf33245bc037c"
+      );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
