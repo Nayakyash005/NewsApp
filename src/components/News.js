@@ -24,6 +24,11 @@ const News = () => {
     // url.searchParams.append("country", countrycode);
     // url.searchParams.append("apiKey", API);
 
+    if (countrycode.length > 2) {
+      // keep only two letters of it
+      const valn = countrycode.slice(0, 2);
+      setcountryCode(valn);
+    }
     try {
       const response = await fetch(
         `${API_URL}/${countrycode}/9c1d8b64220947d086caf33245bc037c`
@@ -62,7 +67,7 @@ const News = () => {
             type="text"
             name="country"
             value={countrycode}
-            onChange={(e) => setcountryCode(e.target.value)}
+            onChange={(e) => setcountryCode(e.target.value.slice(0, 2))}
             id="country"
             placeholder="countryCode..."
             className="h-12 w-64 shadow-xl rounded px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
