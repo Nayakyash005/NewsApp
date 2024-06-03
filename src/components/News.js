@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 // import img1 from "./assets/images.jpeg";
 import { useNavigate } from "react-router-dom";
 import { IoChatboxEllipsesSharp } from "react-icons/io5";
@@ -11,7 +12,8 @@ const News = () => {
   const [API, setAPI] = useState("");
   const navigate = useNavigate();
 
-  const API_URL = "https://newsapi.org/v2/top-headlines";
+  // const API_URL = "https://newsapi.org/v2/top-headlines";
+  const API_URL = "http://localhost:5000";
   const API_KEY = "9c1d8b64220947d086caf33245bc037c";
 
   const handlenews = async () => {
@@ -19,14 +21,17 @@ const News = () => {
     setError(null);
 
     const url = new URL(`${API_URL}`);
-    url.searchParams.append("country", countrycode);
-    url.searchParams.append("apiKey", API);
+    // url.searchParams.append("country", countrycode);
+    // url.searchParams.append("apiKey", API);
 
     try {
-      // const response = await fetch(url);
       const response = await fetch(
-        "https://newsapi.org/v2/everything?q=keyword&apiKey=9c1d8b64220947d086caf33245bc037c"
+        `${API_URL}/${countrycode}/9c1d8b64220947d086caf33245bc037c`
       );
+      // const response = await fetch(
+      //   `https://newsapi.org/v2/top-headlines?country=${countrycode}&apiKey=9c1d8b64220947d086caf33245bc037c`
+      // );
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
