@@ -68,24 +68,7 @@ const News = () => {
             className="h-12 w-64 shadow-xl rounded px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </label>
-        <label className="flex flex-col items-start mr-4">
-          <span className="text-lg  mb-2 font-bold ">Enter country</span>
-          <input
-            type="text"
-            name="country"
-            value={API}
-            onChange={(e) => setAPI(e.target.value)}
-            id="country"
-            placeholder="API_key..."
-            className="h-12 w-64 shadow-xl rounded px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </label>
-        <button
-          onClick={handleAPI}
-          className="px-6 py-2 h-fit md: mt-10 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300 shadow-xl"
-        >
-          Get API_KEY
-        </button>
+
         <button
           onClick={handlenews}
           className="px-6 py-2 h-fit md: mt-10 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300 shadow-xl"
