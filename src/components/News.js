@@ -13,7 +13,7 @@ const News = () => {
   const navigate = useNavigate();
 
   // const API_URL = "https://newsapi.org/v2/top-headlines";
-  const API_URL = "http://localhost:5000";
+  const API_URL = "https://news-app-zwfw.vercel.app";
   const API_KEY = "9c1d8b64220947d086caf33245bc037c";
 
   const handlenews = async () => {
